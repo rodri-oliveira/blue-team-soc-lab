@@ -1,0 +1,34 @@
+# Credenciais, variáveis de ambiente e chaves
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*
+*secrets*
+
+# Capturas e evidências brutas (publicar apenas versões revisadas)
+evidencias-brutas/
+raw-evidence/
+raw/
+private/
+*.pcap
+*.pcapng
+*.har
+*.log
+*.sqlite
+*.db
+*.bak
+
+# Python / editores / sistema
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
