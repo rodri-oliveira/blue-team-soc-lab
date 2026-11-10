@@ -55,3 +55,11 @@ Concluir a auditoria de permissões Android, organizar relatórios técnicos, de
 - **DFIR:** Digital Forensics and Incident Response.
 
 Todos os experimentos são realizados em equipamentos próprios ou com autorização expressa.
+
+
+## Segurança e qualidade das evidências
+
+- [Política de segurança e divulgação responsável](SECURITY.md)
+- [Padrão de evidências para relatórios SOC L1](docs/EVIDENCIAS.md)
+
+Os materiais publicados são exercícios de aprendizado e não constituem prova de experiência profissional em um SOC.
