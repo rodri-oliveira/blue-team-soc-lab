@@ -1,71 +1,57 @@
 # Blue Team SOC Lab
 
-Laboratório prático de cibersegurança defensiva (**Blue Team**) com foco no desenvolvimento de competências para atuação como **SOC Analyst Júnior**.
+Laboratório pessoal de **segurança defensiva**, com foco na construção de competências para **SOC Analyst L1**. O estágio atual é a auditoria autorizada de um smartphone Android próprio por meio de **ADB via Wi-Fi**, usando Windows 11, PowerShell e Kali Linux no WSL2.
 
-Este repositório documenta experimentos autorizados, procedimentos de análise, evidências sanitizadas, automações e lições aprendidas. O trabalho é incremental: cada etapa é validada antes de avançar.
+> **Estado:** em desenvolvimento. Não é um SOC de produção. SIEM, EDR, SOAR e automações avançadas ainda são objetivos futuros, não implementações concluídas.
 
 ## Objetivos
 
-- Investigar configurações de segurança e a superfície de ataque em dispositivos próprios.
-- Praticar coleta e interpretação de evidências técnicas usando ferramentas gratuitas.
-- Desenvolver automações defensivas com Python.
-- Evoluir gradualmente para um laboratório de monitoramento e resposta a incidentes.
-
-## Ambiente de laboratório
-
-- **Estação de análise:** Windows 11, PowerShell e Kali Linux no WSL2.
-- **Dispositivo analisado:** smartphone Android de uso próprio, conectado por ADB (Android Debug Bridge) via Wi-Fi.
-- **Abordagem:** consultas preferencialmente somente de leitura; alterações somente com decisão explícita do proprietário.
-- **Custo:** priorização de ferramentas gratuitas e de código aberto.
-
-> **Privacidade e ética:** endereços IP, números de série, nomes de dispositivos, credenciais, tokens, documentos pessoais e saídas brutas com dados sensíveis não devem ser publicados neste repositório.
+- Investigar e documentar configurações de segurança de dispositivos próprios.
+- Interpretar evidências sem atribuir automaticamente comportamentos a invasões ou malware.
+- Desenvolver procedimentos reproduzíveis e, futuramente, automações defensivas com ferramentas gratuitas.
+- Evoluir para coleta, análise e monitoramento de eventos em laboratório autorizado.
 
 ## Progresso
 
-| Área | Situação |
+| Verificação | Situação |
 | --- | --- |
-| Preparação da comunicação ADB via Wi-Fi | Realizada |
-| Inventário inicial de pacotes Android | Realizado; análise individual em andamento |
-| Identificação de origem de instalação de aplicativos | Em andamento |
-| Revisão de serviços de acessibilidade ativos | Consulta realizada; nenhum serviço listado na evidência |
-| Revisão de administradores de dispositivo | Consulta realizada; nenhum administrador ativo listado para o usuário principal |
-| Auditoria de permissões especiais e sobreposição de tela | Próxima etapa |
-| Coleta estruturada e sanitização de evidências | Planejada |
-| Scripts de análise defensiva em Python | Planejados |
-| Monitoramento de tráfego de rede | Planejado |
-| SIEM, EDR e SOAR | Evolução futura, ainda não implementada |
+| Comunicação ADB via Wi-Fi | Realizada |
+| Inventário inicial de pacotes Android | Realizado; revisão em andamento |
+| Origem de instalação de aplicativos | Investigação em andamento |
+| Serviços de acessibilidade | Consulta realizada |
+| Administradores de dispositivo | Consulta realizada |
+| Permissões especiais e sobreposição de tela | Próxima etapa |
+| Relatórios estruturados com evidências sanitizadas | Planejado |
+| Scripts Python para inventário e comparação | Planejado |
+| Monitoramento de tráfego | Planejado |
+| SIEM, EDR e SOAR | Futuro; não implementado |
 
-**Importante:** ausência de indicadores em verificações específicas não comprova que um dispositivo esteja livre de ameaças. Da mesma forma, um nome de pacote desconhecido ou o instalador registrado não é evidência suficiente de malware.
+**Limitação:** uma consulta com resultado vazio não comprova a ausência de ameaças; um nome de pacote ou instalador desconhecido tampouco constitui, isoladamente, evidência de comprometimento.
 
-## Metodologia
+## Procedimento de análise
 
-1. Definir o objetivo e o escopo de cada verificação.
-2. Executar um procedimento por vez e registrar sua finalidade.
-3. Interpretar resultados e distinguir fatos observados de hipóteses.
-4. Documentar limitações e próximos passos.
-5. Sanitizar evidências antes da publicação.
+1. Registrar objetivo, escopo e autorização.
+2. Executar uma verificação por vez, compreendendo cada comando.
+3. Conferir a saída e registrar apenas as observações comprovadas.
+4. Separar fatos, hipóteses e limitações.
+5. Revisar e sanitizar materiais antes de publicar relatórios.
 
-## Próximas etapas
+## Proteção de dados
 
-- Revisar permissões especiais concedidas aos aplicativos, incluindo sobreposição de tela.
-- Criar relatórios técnicos reproduzíveis sobre configurações e controles do Android.
-- Elaborar scripts para inventário e comparação de pacotes.
-- Avaliar, de acordo com a capacidade do ambiente, ferramentas de monitoramento e resposta como Wazuh (SIEM), Velociraptor (EDR/DFIR) e Shuffle (SOAR).
+Nunca publicar evidências brutas contendo IPs pessoais, identificadores, nomes de dispositivos, contas, senhas, tokens ou outros dados sensíveis. O [`.gitignore`](.gitignore) ajuda a evitar inclusão acidental, mas não garante proteção de segredos: cada commit requer revisão manual.
+
+## Evolução planejada
+
+Concluir a auditoria de permissões Android, organizar relatórios técnicos, desenvolver rotinas defensivas em Python e iniciar estudos práticos com ferramentas de monitoramento e resposta quando o ambiente estiver preparado.
 
 ## Glossário
 
-- **SOC** — Security Operations Center: centro de operações de segurança.
-- **Blue Team** — equipe e atividades de defesa cibernética.
-- **ADB** — Android Debug Bridge: interface de comunicação e diagnóstico Android.
-- **SIEM** — Security Information and Event Management: centralização e correlação de eventos de segurança.
-- **EDR** — Endpoint Detection and Response: detecção e resposta em endpoints.
-- **SOAR** — Security Orchestration, Automation and Response: orquestração e automação de resposta.
-- **DFIR** — Digital Forensics and Incident Response: forense digital e resposta a incidentes.
+- **SOC:** Security Operations Center.
+- **Blue Team:** defesa, detecção e resposta.
+- **ADB:** Android Debug Bridge.
+- **SIEM:** Security Information and Event Management.
+- **EDR:** Endpoint Detection and Response.
+- **SOAR:** Security Orchestration, Automation and Response.
+- **DFIR:** Digital Forensics and Incident Response.
 
-## Uso responsável
-
-Os experimentos são realizados em ambientes e dispositivos próprios ou expressamente autorizados. Este projeto tem finalidade educacional e defensiva.
-
----
-
-**Estado do projeto:** iniciado; documentação e análises em evolução.
+Todos os experimentos são realizados em equipamentos próprios ou com autorização expressa.
